@@ -1,0 +1,14 @@
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\Modelo\bin\Debug\Modelo.dll
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\Modelo\bin\Debug\Modelo.pdb
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\Modelo\obj\Debug\Modelo.dll
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\Modelo\bin\Debug\Modelo.dll
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\Modelo\obj\Debug\Modelo.dll
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\Modelo\obj\Debug\Modelo.pdb
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\bin\Debug\Modelo.dll
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\bin\Debug\Modelo.pdb
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\obj\Debug\Modelo.dll
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\obj\Debug\Modelo.pdb

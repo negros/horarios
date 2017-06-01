@@ -1,0 +1,54 @@
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.dll
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.pdb
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\bin\Controlador.dll
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\bin\Modelo.dll
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\bin\Controlador.pdb
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\bin\Modelo.pdb
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.csprojResolveAssemblyReference.cache
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.dll
+C:\Users\OS\Documents\Visual Studio 2012\Projects\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.pdb
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.dll.config
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.dll
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.pdb
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\Controlador.dll
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\Modelo.dll
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\Controlador.pdb
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\bin\Modelo.pdb
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.csprojResolveAssemblyReference.cache
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.dll
+C:\Users\Durley\Desktop\proyecto\horarios-ctgi\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.pdb
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.dll
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.pdb
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\bin\Controlador.dll
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\bin\Modelo.dll
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\bin\Controlador.pdb
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\bin\Modelo.pdb
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.csprojResolveAssemblyReference.cache
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.dll
+C:\Users\OS\Desktop\actualizado\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.pdb
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.dll.config
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\HorarioCtgi.pdb
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\Controlador.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\Modelo.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\Controlador.pdb
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\Modelo.pdb
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.csprojResolveAssemblyReference.cache
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\obj\Debug\HorarioCtgi.pdb
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.CrystalReports.Engine.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportSource.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.Shared.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.DataDefModel.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.ClientDoc.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.Controllers.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.CommLayer.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.Prompting.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\CrystalDecisions.ReportAppServer.CommonControls.dll
+E:\ALEJANDRO_\Documents\actualizado\HorariosCtgi\HorarioCtgi\bin\stdole.dll
