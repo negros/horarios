@@ -142,14 +142,19 @@
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
-                                    <Columns>
-                                        <asp:BoundField DataField="codigo_amb" HeaderText="Codigo del ambiente" SortExpression="codigo_amb" />
+                        
+                                 <div>  
+                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_amb" OnPageIndexChanging="GridView1_PageIndexChanging" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">  
+                    <Columns>  
+                       <asp:BoundField DataField="codigo_amb" HeaderText="Codigo del ambiente" SortExpression="codigo_amb" />
                                         <asp:BoundField DataField="nombre_amb" HeaderText="Nombre del ambiente" SortExpression="nombre_amb" />
                                         <asp:BoundField DataField="capacidad_amb" HeaderText="Capacidad del ambiente" SortExpression="capacidad_amb" />
                                         <asp:BoundField DataField="estado_amb" HeaderText="Estado del ambiente" SortExpression="estado_amb" />
-                                    </Columns>
-                                </asp:GridView>
+                        <asp:CommandField ShowEditButton="true" />  
+                        <asp:CommandField ShowDeleteButton="true" /> </Columns>  
+                 
+                </asp:GridView>  
+            </div>  
                             </div>
                         </article>
                     </div>

@@ -22,7 +22,7 @@ namespace HorarioCtgi
 
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
-            dt.codigo_amb = Convert.ToInt16(txtcod_ambiente.Text);
+            dt.codigo_amb = Convert.ToInt32(txtcod_ambiente.Text);
             dt.nombre_amb = txtnombre_ambiente.Text;
             dt.capacidad_amb = txtcapacidad_personas.Text;
             dt.estado_amb = txtestado_ambiente.Text;
@@ -58,5 +58,52 @@ namespace HorarioCtgi
             grvAmbientes.DataSource = data;
             grvAmbientes.DataBind();
         }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)grvAmbientes.Rows[e.RowIndex];
+            Label lbldeleteid = (Label)row.FindControl("lblID");
+            
+            Console.Write(grvAmbientes.DataKeys[e.RowIndex].Value.ToString());
+           dt.codigo_amb = Convert.ToInt16(grvAmbientes.DataKeys[e.RowIndex].Value.ToString());
+            cd.eliminarAmbiente(dt);
+            btnListar_Click(sender,e);
+        }
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            grvAmbientes.EditIndex = e.NewEditIndex;
+            btnListar_Click(sender, e);
+        }
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            int userid = Convert.ToInt32(grvAmbientes.DataKeys[e.RowIndex].Value.ToString());
+            GridViewRow row = (GridViewRow)grvAmbientes.Rows[e.RowIndex];
+            Label lblID = (Label)row.FindControl("lblID");
+            TextBox textCodAmb = (TextBox)row.Cells[0].Controls[0];
+            TextBox textNombreAmb= (TextBox)row.Cells[1].Controls[0];
+            TextBox textCapacidadAmb= (TextBox)row.Cells[2].Controls[0];
+            TextBox textEstadoAmb = (TextBox)row.Cells[3].Controls[0];
+            dt.codigo_amb = Convert.ToInt32(textCodAmb.Text);
+            dt.nombre_amb = textNombreAmb.Text;
+            dt.capacidad_amb = textCapacidadAmb.Text;
+            dt.estado_amb = textEstadoAmb.Text;
+            cd.modificarAmbiente(dt);
+
+            grvAmbientes.EditIndex = -1;
+            btnListar_Click(sender, e);
+
+      
+        }
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grvAmbientes.PageIndex = e.NewPageIndex;
+            btnListar_Click(sender, e);
+        }
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            grvAmbientes.EditIndex = -1;
+            btnListar_Click(sender, e);
+        }
     }
+
 }
