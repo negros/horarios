@@ -12,7 +12,11 @@
     <link rel="icon" href="css/tiempo-pasando.png" />
 
     <title>Competencias</title>
-
+    <style>
+        .oculto {
+            Display: none;
+        }
+    </style>
     <!-- Style Core CSS -->
     <link href="css/estilo.css" rel="stylesheet" />
 </head>
@@ -140,22 +144,41 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button ID="Ingresar" runat="server" Text="Ingresar" CssClass="button button--inline-block button--medium" OnClick="Ingresar_Click" OnClientClick="return validar_registrar()" />
-                                    <asp:Button ID="Modificar" runat="server" Text="Modificar" CssClass="button button--inline-block button--medium" OnClick="Modificar_Click" OnClientClick="return validar_modificar()" />
-                                    <asp:Button ID="Eliminar" runat="server" Text="Eliminar" CssClass="button button--inline-block button--medium" OnClick="Eliminar_Click" OnClientClick="return validar_eliminar()" />
                                     <asp:Button ID="Buscar" runat="server" Text="Buscar" CssClass="button button--inline-block button--medium" OnClick="Buscar_Click" OnClientClick="return validar_consultar()" />
                                     <asp:Button ID="Listar" runat="server" Text="Listar" CssClass="button button--inline-block button--medium" OnClick="Listar_Click" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvCompetencia" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
-                                    <Columns>
-                                        <asp:BoundField DataField="codigo_comp" HeaderText="Codigo Competencia" SortExpression="codigo_comp" />
-                                        <asp:BoundField DataField="nombre_comp" HeaderText="Nombre Competencia" SortExpression="nombre_comp" />
-                                        <asp:BoundField DataField="descripcion_comp" HeaderText="Descripción" SortExpression="descripcion_comp" />
-                                        <asp:BoundField DataField="nombre_prog" HeaderText="Nombre Programa" SortExpression="nombre_prog" />
-                                    </Columns>
-                                </asp:GridView>
+
+
+
+
+                                <div>
+                                    <asp:GridView ID="grvCompetencia" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_comp" OnPageIndexChanging="grvCompetencia_PageIndexChanging" OnRowDataBound="GridView_RowDataBound" OnRowCancelingEdit="grvCompetencia_RowCancelingEdit" OnRowDeleting="grvCompetencia_RowDeleting" OnRowEditing="grvCompetencia_RowEditing" OnRowUpdating="grvCompetencia_RowUpdating">
+                                        <Columns>
+                                            <asp:BoundField DataField="codigo_comp" ReadOnly="true" HeaderText="Codigo Competencia" SortExpression="codigo_comp" />
+                                            <asp:BoundField DataField="nombre_comp" HeaderText="Nombre Competencia" SortExpression="nombre_comp" />
+                                            <asp:BoundField DataField="descripcion_comp" HeaderText="Descripción" SortExpression="descripcion_comp" />
+                                            <asp:BoundField DataField="nombre_prog" HeaderText="Nombre Programa" SortExpression="nombre_prog" />
+                                            <asp:BoundField DataField="id_prog" HeaderText="id Programa" SortExpression="id_prog" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="DropDownList1" runat="server"
+                                                        DataTextField="nombre_prog"
+                                                        DataValueField="id_prog"
+                                                        DataSourceID="SqlDataSource1">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                            <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                            <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
+                                        </Columns>
+
+                                    </asp:GridView>
+                                </div>
+
+
                             </div>
                         </article>
                     </div>

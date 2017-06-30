@@ -161,15 +161,62 @@
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="DTVListar" AutoGenerateColumns="false" runat="server">
-                                    <Columns>
-                                        <asp:BoundField HeaderText="Nombre" DataField="nombre_prog" />
-                                        <asp:BoundField HeaderText="Nombre" DataField="codigo_ficha" />
+
+
+
+
+                                <div>
+                                    <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_ficha" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating"  OnRowDataBound="GridView_RowDataBound">  
+                                        <Columns>
+                                        
+                                        <asp:BoundField HeaderText="Codigo" ReadOnly="true" DataField="codigo_ficha" />
                                         <asp:BoundField HeaderText="Integrantes" DataField="nintegrantes_ficha" />
-                                        <asp:BoundField HeaderText="Jornada" DataField="jornada_ficha" />
-                                        <asp:BoundField HeaderText="Cohorte" DataField="nombre_coho" />
-                                    </Columns>
-                                </asp:GridView>
+                                       
+                                        
+
+                                             <asp:BoundField HeaderText="Nombre" DataField="nombre_prog" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="DropDownList2" runat="server" 
+                                                        DataSourceID="llenarprograma" 
+                                                        DataTextField="nombre_prog" 
+                                                        DataValueField="id_prog"></asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                             <asp:BoundField HeaderText="Jornada" DataField="jornada_ficha" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="browser-default">
+                                                        <asp:ListItem Value="Diurna"> Diurna </asp:ListItem>
+                                                        <asp:ListItem Value="Nocturna"> Nocturna </asp:ListItem>
+                                                        <asp:ListItem Value="Mixta"> Mixta </asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField HeaderText="Cohorte" DataField="nombre_coho" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ddlcohorte" runat="server"
+                                                        DataTextField="nombre_coho"
+                                                        DataValueField="id_coho"
+                                                        DataSourceID="LlenarDDLCohorte">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                             <asp:BoundField HeaderText="id_program" DataField="id_program" />
+                                        <asp:BoundField HeaderText="id_cohorte" DataField="id_cohorte" />
+                                            <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                            <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
+                                        </Columns>
+                                        
+                                            
+                                            
+                                    </asp:GridView>
+                                </div>
+
                             </div>
                         </article>
                     </div>

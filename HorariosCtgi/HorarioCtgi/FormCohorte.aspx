@@ -146,7 +146,7 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button ID="GuardarCohorte" runat="server" Text="Guardar" CssClass="button button--inline-block button--medium" OnClick="GuardarCohorte_Click" />
-                                    <asp:Button ID="ActualizarCohorte" runat="server" Text="Actualizar" CssClass="button button--inline-block button--medium" OnClick="ActualizarCohorte_Click" />
+                                  
                                     <asp:Button ID="ListarCohorte" runat="server" Text="Listar" CssClass="button button--inline-block button--medium" OnClick="ListarCohorte_Click" />
                                 </p>
 
@@ -157,7 +157,7 @@
                                         <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_coho" OnPageIndexChanging="DTVListar_PageIndexChanging"
                                          OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating">  
                     <Columns>  
-                       <asp:BoundField HeaderText="Codigo" ReadOnly="true"ss  DataField="codigo_coho" />
+                       <asp:BoundField HeaderText="Codigo" ReadOnly="true" DataField="codigo_coho" />
                                         <asp:BoundField HeaderText="Nombre" DataField="nombre_coho" />
                                         <asp:BoundField HeaderText="Fecha inicio" DataField="fechainicio_coho" />
                                         <asp:BoundField HeaderText="Fecha fin" DataField="fechafin_coho" />
