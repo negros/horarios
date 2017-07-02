@@ -50,6 +50,7 @@ namespace Controlador
             cmd.Parameters.AddWithValue("@codigo_comp", cpt.codigo_comp);
             cmd.Parameters.AddWithValue("@nombre_comp", cpt.nombre_comp);
             cmd.Parameters.AddWithValue("@descripcion_comp", cpt.descripcion_comp);
+            cmd.Parameters.AddWithValue("@id_programa", cpt.id_prog);
             con.Open();
             cmd.ExecuteNonQuery();
             con.Close();

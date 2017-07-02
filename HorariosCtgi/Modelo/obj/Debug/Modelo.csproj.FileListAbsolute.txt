@@ -12,3 +12,8 @@ C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\bin\Debug\Modelo.pdb
 C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
 C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\obj\Debug\Modelo.dll
 C:\Users\OS\Desktop\actualizado\HorariosCtgi\Modelo\obj\Debug\Modelo.pdb
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Modelo\bin\Debug\Modelo.dll
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Modelo\bin\Debug\Modelo.pdb
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Modelo\obj\Debug\Modelo.dll
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Modelo\obj\Debug\Modelo.pdb

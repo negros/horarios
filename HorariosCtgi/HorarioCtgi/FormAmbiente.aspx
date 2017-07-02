@@ -133,23 +133,26 @@
                                 <!--Botones-->
                                 <br /><br />
                                 <p class="text-align--center">
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnInsertar" runat="server" Text="Insertar" OnClick="btnInsertar_Click" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
+                                    <asp:Button class="button button--inline-block button--medium" ID="btnInsertar" runat="server" Text="Insertar" OnClick="btnInsertar_Click" />                                
                                     <asp:Button class="button button--inline-block button--medium" ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnListar" runat="server" Text="Listar" OnClick="btnListar_Click" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
-                                    <Columns>
-                                        <asp:BoundField DataField="codigo_amb" HeaderText="Codigo del ambiente" SortExpression="codigo_amb" />
+                        
+                                 <div>  
+                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_amb" OnPageIndexChanging="grvAmbientes_PageIndexChanging" OnRowCancelingEdit="grvAmbientes_RowCancelingEdit" OnRowDeleting="grvAmbientes_RowDeleting" OnRowEditing="grvAmbientes_RowEditing" OnRowUpdating="grvAmbientes_RowUpdating">  
+                    <Columns>  
+                       <asp:BoundField DataField="codigo_amb" ReadOnly="true" HeaderText="Codigo del ambiente" SortExpression="codigo_amb" />
                                         <asp:BoundField DataField="nombre_amb" HeaderText="Nombre del ambiente" SortExpression="nombre_amb" />
                                         <asp:BoundField DataField="capacidad_amb" HeaderText="Capacidad del ambiente" SortExpression="capacidad_amb" />
                                         <asp:BoundField DataField="estado_amb" HeaderText="Estado del ambiente" SortExpression="estado_amb" />
-                                    </Columns>
-                                </asp:GridView>
+                        <asp:CommandField ShowEditButton="true" />  
+                        <asp:CommandField ShowDeleteButton="true" /> </Columns>  
+                 
+                </asp:GridView>  
+            </div>  
                             </div>
                         </article>
                     </div>
