@@ -129,20 +129,21 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button class="button button--inline-block button--medium" ID="btnInsertar" runat="server" Text="Insertar" OnClick="Insertar" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnModificar" runat="server" Text="Modificar" OnClick="Modificar" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="Eliminar" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnConsultar" runat="server" Text="Consultar" OnClick="Consultar" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnListar" runat="server" Text="Listar" OnClick="btnListar_Click" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
+                                <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="dni_instructor" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting">
                                     <Columns>
-                                        <asp:BoundField DataField="dni_instructor" HeaderText="DNI del Instructor" SortExpression="dni_instruc" />
+                                        <asp:BoundField DataField="dni_instructor" ReadOnly="true" HeaderText="DNI del Instructor" SortExpression="dni_instruc" />
                                         <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre del Instructor" SortExpression="nombre_instruc" />
                                         <asp:BoundField DataField="apellido_instructor" HeaderText="Nombre del TeInstructor" SortExpression="napellido_instruc" />
                                         <asp:BoundField DataField="profesion" HeaderText="Profesión del Instructor" SortExpression="profesion_instruc" />
+                                        <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                        <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

@@ -118,7 +118,7 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label>Competencia</label></td>
+                                            <label>Resultado</label></td>
                                         <td>
                                             <asp:SqlDataSource
                                                 ID="SqlDataSource1"
@@ -140,20 +140,36 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button class="button button--inline-block button--medium" ID="btnInsertar" runat="server" Text="Insertar" OnClick="Insertar" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnModificar" runat="server" Text="Modificar" OnClick="Modificar" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="Eliminar" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnConsultar" runat="server" Text="Consultar" OnClick="Consultar" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnListar" runat="server" Text="Listar" OnClick="btnListar_Click" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
+                           
+
+
+
+                                      <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="codigo_tema" 
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
                                     <Columns>
-                                        <asp:BoundField DataField="codigo_tema" HeaderText="Codigo del Tema" SortExpression="codigo_tema" />
+                                      
+                                          <asp:BoundField DataField="codigo_tema" ReadOnly="true" HeaderText="Codigo del Tema" SortExpression="codigo_tema" />
                                         <asp:BoundField DataField="nombre_tema" HeaderText="Nombre del Tema" SortExpression="nombre_tema" />
                                         <asp:BoundField DataField="descripcion_tema" HeaderText="Descripcion del Tema" SortExpression="descripcion_tema" />
                                         <asp:BoundField DataField="nombre_resu" HeaderText="Resultado" SortExpression="Resultado" />
+                                         <asp:TemplateField>
+                                                <ItemTemplate>
+                                                     <asp:DropDownList ID="resultado" runat="server"
+                                                DataTextField="nombre_resu"
+                                                DataValueField="id_resu"
+                                                DataSourceID="SqlDataSource1">
+                                            </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        <asp:BoundField  DataField="id_resultado" />
+                                        <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                        <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

@@ -19,3 +19,10 @@ C:\Users\OS\Desktop\actualizado\HorariosCtgi\Controlador\bin\Debug\Modelo.pdb
 C:\Users\OS\Desktop\actualizado\HorariosCtgi\Controlador\obj\Debug\CAD.csprojResolveAssemblyReference.cache
 C:\Users\OS\Desktop\actualizado\HorariosCtgi\Controlador\obj\Debug\Controlador.dll
 C:\Users\OS\Desktop\actualizado\HorariosCtgi\Controlador\obj\Debug\Controlador.pdb
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\bin\Debug\Controlador.dll
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\bin\Debug\Controlador.pdb
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\bin\Debug\Modelo.dll
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\bin\Debug\Modelo.pdb
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\obj\Debug\CAD.csprojResolveAssemblyReference.cache
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\obj\Debug\Controlador.dll
+E:\ALEJANDRO_\Desktop\horarios\HorariosCtgi\Controlador\obj\Debug\Controlador.pdb

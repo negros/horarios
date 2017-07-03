@@ -92,6 +92,8 @@ namespace Controlador
             DataTable data = new DataTable();
             Modelo.DTOAmbiente dt = new Modelo.DTOAmbiente();
             con = new SqlConnection(cadena);
+            cmd = null;
+            cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "prcGestionAmbiente";
             cmd.CommandType = CommandType.StoredProcedure;
