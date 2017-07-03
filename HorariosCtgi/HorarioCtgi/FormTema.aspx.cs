@@ -10,11 +10,15 @@ using System.Web.UI.WebControls;
 
 namespace HorarioCtgi
 {
+   
     public partial class FormTema : System.Web.UI.Page
     {
+       
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             chafe1.Text = DateTime.Now.ToShortDateString();
+           
         }
         protected void Insertar(object sender, EventArgs e)
         {
@@ -162,12 +166,80 @@ namespace HorarioCtgi
             //}
         }
 
+    
         protected void btnListar_Click(object sender, EventArgs e)
         {
             CADTemas cd = new CADTemas();
             DataTable data = cd.listarTemas();
-            grvAmbientes.DataSource = data;
-            grvAmbientes.DataBind();
+            DTVListar.DataSource = data;
+            DTVListar.DataBind();
+        }
+
+        protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DTOTemas dt = new DTOTemas();
+            dt.Codigo_tema = DTVListar.DataKeys[e.RowIndex].Value.ToString();
+            CADTemas cd = new CADTemas();
+            cd.eliminarTemas(dt);
+            btnListar_Click(sender, e);
+        }
+
+        //Metodo para habilitar opciones de editar o cancelar
+        protected void DTVListar_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            DTVListar.EditIndex = e.NewEditIndex;
+            btnListar_Click(sender, e);
+            DTVListar.Rows[e.NewEditIndex].Cells[3].Visible = false;
+            DTVListar.Rows[e.NewEditIndex].Cells[4].Visible = true;
+            DropDownList ddlResultado = (DropDownList)DTVListar.Rows[e.NewEditIndex].Cells[4].Controls[1];
+            TextBox resultadoActual = (TextBox)DTVListar.Rows[e.NewEditIndex].Cells[5].Controls[0];
+            ddlResultado.SelectedValue = resultadoActual.Text;
+          
+
+
+        }
+
+        //Metodo Actualizar
+        protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            DTOTemas dt = new DTOTemas();
+            GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+
+            TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
+            TextBox textDescripcion = (TextBox)row.Cells[2].Controls[0];
+            DropDownList tidresultado = (DropDownList)row.Cells[4].Controls[1];
+            dt.Codigo_tema = row.Cells[0].Text;
+            dt.Nombre_tema = textnombre.Text;
+            dt.Descripcion_tema = textDescripcion.Text;
+            dt.Id_resultado = Convert.ToInt32(tidresultado.SelectedItem.Value);
+            CADTemas cd = new CADTemas();
+            cd.modificarTemas(dt);
+            DTVListar.EditIndex = -1;
+           
+            btnListar_Click(sender, e);
+        }
+        // metodo para paginacion
+        protected void DTVListar_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            DTVListar.PageIndex = e.NewPageIndex;
+            btnListar_Click(sender, e);
+        }
+
+        //boton cancelar edicion
+        protected void DTVListar_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            DTVListar.EditIndex = -1;
+        
+            btnListar_Click(sender, e);
+        }
+
+        protected void DTVListar_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            e.Row.Cells[5].Visible = false;
+          
+                     e.Row.Cells[4].Visible = false;
+                e.Row.Cells[3].Visible = true;
+            
         }
     }
 }

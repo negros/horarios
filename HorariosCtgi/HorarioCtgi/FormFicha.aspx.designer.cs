@@ -112,24 +112,6 @@ namespace HorarioCtgi {
         protected global::System.Web.UI.WebControls.Button GuardarFicha;
         
         /// <summary>
-        /// Control EliminarFicha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button EliminarFicha;
-        
-        /// <summary>
-        /// Control ActualizarFicha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ActualizarFicha;
-        
-        /// <summary>
         /// Control BuscarFicha.
         /// </summary>
         /// <remarks>

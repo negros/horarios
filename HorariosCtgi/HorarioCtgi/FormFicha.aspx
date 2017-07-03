@@ -153,8 +153,7 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button ID="GuardarFicha" runat="server" Text="Guardar" CssClass="button button--inline-block button--medium" OnClick="GuardarFicha_Click" />
-                                    <asp:Button ID="EliminarFicha" runat="server" Text="Eliminar" CssClass="waves-effect waves-light text-black btn white" OnClick="EliminarFicha_Click" />
-                                    <asp:Button ID="ActualizarFicha" runat="server" Text="Actualizar" CssClass="waves-effect waves-light text-black btn white" OnClick="ActualizarFicha_Click" />
+                                 
                                     <asp:Button ID="BuscarFicha" runat="server" Text="Buscar" CssClass="waves-effect waves-light text-black btn white" OnClick="BuscarFicha_Click" />
                                     <asp:Button ID="ListarFicha" runat="server" Text="Listar" CssClass="waves-effect waves-light text-black btn white" OnClick="ListarFicha_Click" />
                                 </p>
@@ -166,7 +165,7 @@
 
 
                                 <div>
-                                    <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_ficha" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                    <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_ficha" OnPageIndexChanging="DTVListar_PageIndexChanging" OnRowDeleting="DTVListar_RowDeleting"
                                          OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating"  OnRowDataBound="GridView_RowDataBound">  
                                         <Columns>
                                         

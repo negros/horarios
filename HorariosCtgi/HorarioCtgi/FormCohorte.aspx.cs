@@ -72,13 +72,13 @@ namespace HorarioCtgi
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
-            TextBox textcodigo = (TextBox)row.Cells[0].Controls[0];
+         
             TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
             TextBox textfecha_inicio = (TextBox)row.Cells[2].Controls[0];
             TextBox textfecha_fin = (TextBox)row.Cells[3].Controls[0];
             TextBox textano = (TextBox)row.Cells[4].Controls[0];
             TextBox textTrimeste = (TextBox)row.Cells[5].Controls[0];
-            cohorte.codigo_cohorte = Convert.ToInt64(textcodigo.Text);
+            cohorte.codigo_cohorte = Convert.ToInt64(row.Cells[0].Text);
             cohorte.nombre_cohorte = textnombre.Text;
             cohorte.fecha_inicio = Convert.ToDateTime(textfecha_inicio.Text);
             cohorte.fecha_fin = Convert.ToDateTime(textfecha_fin.Text);

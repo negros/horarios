@@ -13,7 +13,6 @@ namespace Controlador
     public class CADPrograma
     {
         string cadena = ConfigurationManager.ConnectionStrings["conSQLServer"].ConnectionString.ToString();
-        DTOPrograma dt;
         SqlConnection con;
         SqlCommand cmd = new SqlCommand();
 
@@ -49,7 +48,7 @@ namespace Controlador
             }
         }
 
-        public void modificar(DTOPrograma cpt)
+        public void modificar(DTOPrograma dt)
         {
             con = new SqlConnection(cadena);
             cmd.Connection = con;
@@ -126,10 +125,11 @@ namespace Controlador
         public DataTable listar()
         {
             con = new SqlConnection(cadena);
+            cmd = new SqlCommand();
             cmd.Connection = con;
             cmd.CommandText = "prc_GestionPrograma";
             cmd.CommandType = CommandType.StoredProcedure;
-            DataTable dt = new DataTable();
+            DataTable dt= new DataTable();
             cmd.Parameters.AddWithValue("@action", "list");
             con.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);

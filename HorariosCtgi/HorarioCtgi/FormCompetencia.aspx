@@ -12,11 +12,7 @@
     <link rel="icon" href="css/tiempo-pasando.png" />
 
     <title>Competencias</title>
-    <style>
-        .oculto {
-            Display: none;
-        }
-    </style>
+   
     <!-- Style Core CSS -->
     <link href="css/estilo.css" rel="stylesheet" />
 </head>

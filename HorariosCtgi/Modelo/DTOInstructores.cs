@@ -8,22 +8,22 @@ namespace Modelo
 {
     public class DTOInstructores
     {
-        private string nombre_isntructor;
+        private string nombre_instructor;
         private string apellido_instructor;
         private string profesion_instructor;
         private int dni_instructor;
 
 
-        public string Nombre_isntructor
+        public string Nombre_instructor
         {
             get
             {
-                return nombre_isntructor;
+                return nombre_instructor;
             }
 
             set
             {
-                nombre_isntructor = value;
+                nombre_instructor = value;
             }
         }
 

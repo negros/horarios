@@ -30,22 +30,6 @@ namespace HorarioCtgi
             daoficha.insertarFicha(ficha);
         }
 
-        protected void EliminarFicha_Click(object sender, EventArgs e)
-        {
-            ficha.codigo_ficha = Convert.ToInt64(txtcodigo.Text);
-            daoficha.eliminarFicha(ficha);
-        }
-
-        protected void ActualizarFicha_Click(object sender, EventArgs e)
-        {
-            ficha.codigo_ficha = Convert.ToInt64(txtcodigo.Text);
-            ficha.id_programa = Convert.ToInt16(ddlnombre_programa.SelectedItem.Value);
-            ficha.ningregantes_ficha = Convert.ToInt16(txtnintegrante.Text);
-            ficha.jornada_ficha = ddljornada.Text;
-            ficha.id_cohorte = Convert.ToInt16(ddlcohorte.SelectedItem.Value);
-            daoficha.actualizarFicha(ficha);
-        }
-
         protected void BuscarFicha_Click(object sender, EventArgs e)
         {
             ficha = daoficha.ConsultarFicha(Convert.ToInt64(txtcodigo.Text));
