@@ -13,4 +13,6 @@ namespace Modelo
         public string capacidad_amb { get; set; }
         public string estado_amb { get; set; }
     }
+
+
 }

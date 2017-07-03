@@ -18,7 +18,7 @@ namespace CAD
         SqlConnection con;
         SqlCommand cmd;
 
-        public CADResultado()
+        public CADResultado ()
         {
             con = new SqlConnection(cadena);
             cmd = new SqlCommand();
