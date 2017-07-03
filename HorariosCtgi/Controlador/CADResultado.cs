@@ -18,7 +18,7 @@ namespace CAD
         SqlConnection con;
         SqlCommand cmd;
 
-        public CADResultado()
+        public CADResultado ()
         {
             con = new SqlConnection(cadena);
             cmd = new SqlCommand();
@@ -67,6 +67,10 @@ namespace CAD
         public DataTable listarResultados()
         {
             DataTable dt = new DataTable();
+            cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandText = "ProcedureResultado";
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@action", "list");
             con.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);

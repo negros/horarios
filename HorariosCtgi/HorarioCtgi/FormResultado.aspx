@@ -152,20 +152,34 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button ID="Button1" class="button button--inline-block button--medium" runat="server" Text="Insertar" OnClick="Insertar_Click" OnClientClick="validar" />
-                                    <asp:Button ID="Button2" class="button button--inline-block button--medium" runat="server" Text="Modificar" OnClick="Modificar_Click" />
-                                    <asp:Button ID="Button3" class="button button--inline-block button--medium" runat="server" Text="Eliminar" OnClick="Eliminar_Click" />
                                     <asp:Button ID="Button4" class="button button--inline-block button--medium" runat="server" Text="Consultar" OnClick="Consultar_Click" />
                                     <asp:Button ID="Button5" class="button button--inline-block button--medium" runat="server" Text="Listar" OnClick="Listar_Click" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvResultado" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
+                          
+
+                                      <asp:GridView ID="grvResultado" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="codigo_resu" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
                                     <Columns>
-                                        <asp:BoundField DataField="codigo_resu" HeaderText="Código" SortExpression="codigo_resu" />
+                                      
+                                        <asp:BoundField DataField="codigo_resu" ReadOnly="true" HeaderText="Código" SortExpression="codigo_resu" />
                                         <asp:BoundField DataField="nombre_resu" HeaderText="Nombre" SortExpression="nombre_resu" />
                                         <asp:BoundField DataField="descripcion_resu" HeaderText="Descripcion" SortExpression="descripcion_resu" />
                                         <asp:BoundField DataField="nombre_comp" HeaderText="Competencia" SortExpression="nombre_comp" />
+                                         <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="competencia" runat="server"
+                                                DataTextField="nombre_comp"
+                                                DataValueField="id_comp"
+                                                DataSourceID="SqlDataSource1">
+                                            </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        <asp:BoundField  DataField="id_competencia" />
+                                        <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                        <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

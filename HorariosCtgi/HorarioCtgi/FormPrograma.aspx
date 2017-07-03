@@ -148,20 +148,32 @@
                                 <p class="text-align--center">
                                     <asp:Button ID="Ingresar" runat="server" Text="Ingresar" CssClass="button button--inline-block button--medium" OnClick="Ingresar_Click" />
                                     <asp:Button ID="Buscar" runat="server" Text="Buscar" CssClass="button button--inline-block button--medium" OnClick="Buscar_Click" OnClientClick="return validar_consultar()" />
-                                    <asp:Button ID="Modificar" runat="server" Text="Modificar" CssClass="button button--inline-block button--medium" OnClick="Modificar_Click" />
-                                    <asp:Button ID="Eliminar" runat="server" Text="Eliminar" CssClass="button button--inline-block button--medium" OnClick="Eliminar_Click" OnClientClick="return validar_eliminar()" />
                                     <asp:Button ID="Listar" runat="server" Text="Listar" CssClass="button button--inline-block button--medium" OnClick="Listar_Click" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="DTVListar" AutoGenerateColumns="false" runat="server">
+                                 <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="codigo_prog" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
                                     <Columns>
-                                        <asp:BoundField HeaderText="Id" DataField="id_prog" />
-                                        <asp:BoundField HeaderText="Código Programa" DataField="codigo_prog" />
+                                      
+                                        <asp:BoundField HeaderText="Código Programa" ReadOnly="true" DataField="codigo_prog" />
                                         <asp:BoundField HeaderText="Nombre Programa" DataField="nombre_prog" />
                                         <asp:BoundField HeaderText="Descripción" DataField="descripcion_prog" />
                                         <asp:BoundField HeaderText="Version Programa" DataField="version_prog" />
+                                        <asp:BoundField HeaderText="Linea" DataField="nombre_linea_tecno" />
+                                         <asp:TemplateField>
+                                                <ItemTemplate>
+                                                     <asp:DropDownList ID="lintec" runat="server"
+                                                DataTextField="nombre_linea_tecno"
+                                                DataValueField="id_linea_tecno"
+                                                DataSourceID="SqlDataSource1">
+                                            </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+                                        <asp:BoundField  DataField="id_linea_tecno" />
+                                        <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                        <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                     </Columns>
                                 </asp:GridView>
                             </div>

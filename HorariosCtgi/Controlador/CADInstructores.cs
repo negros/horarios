@@ -27,7 +27,7 @@ namespace CAD
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@action", "insert");
                 cmd.Parameters.AddWithValue("@dni_instructor", dt.Dni_instructor);
-                cmd.Parameters.AddWithValue("@nombre_instructor", dt.Nombre_isntructor);
+                cmd.Parameters.AddWithValue("@nombre_instructor", dt.Nombre_instructor);
                 cmd.Parameters.AddWithValue("@profesion", dt.Profesion_instructor);
                 cmd.Parameters.AddWithValue("@apellido_instructor", dt.Apellido_instructor);
                 con.Open();
@@ -66,7 +66,7 @@ namespace CAD
                 SqlDataReader sdr = cmd.ExecuteReader();
                 if (sdr.Read())
                 {
-                    dt.Nombre_isntructor = Convert.ToString(sdr["nombre_instructor"]);
+                    dt.Nombre_instructor = Convert.ToString(sdr["nombre_instructor"]);
                     dt.Apellido_instructor = Convert.ToString(sdr["apellido_instructor"]);
                     dt.Profesion_instructor = Convert.ToString(sdr["profesion"]);
                     sdr.Close();
@@ -97,7 +97,7 @@ namespace CAD
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@action", "update");
                 cmd.Parameters.AddWithValue("@dni_instructor", dt.Dni_instructor);
-                cmd.Parameters.AddWithValue("@nombre_instructor", dt.Nombre_isntructor);
+                cmd.Parameters.AddWithValue("@nombre_instructor", dt.Nombre_instructor);
                 cmd.Parameters.AddWithValue("@profesion", dt.Profesion_instructor);
                 cmd.Parameters.AddWithValue("@apellido_instructor", dt.Apellido_instructor);
                 con.Open();
