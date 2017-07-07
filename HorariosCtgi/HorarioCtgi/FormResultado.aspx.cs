@@ -23,7 +23,7 @@ namespace HorarioCtgi
             resultado.Nombre_resultado = txtnombre.Text;
             resultado.Codigo_resultado = txtcodigo.Text;
             resultado.Descripcion = txtdescripcion.Text;
-            resultado.Id_comp = Convert.ToInt16(competencia.SelectedItem.Value);
+            resultado.Id_comp = Convert.ToInt32(competencia.SelectedItem.Value);
             try
             {
                 cad.insertarResultado(resultado);

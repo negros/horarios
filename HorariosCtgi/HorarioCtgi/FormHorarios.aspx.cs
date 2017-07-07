@@ -31,10 +31,10 @@ namespace HorarioCtgi
             dt.horafin_asig = Convert.ToDateTime(txthora_fin.Text);
             dt.dia_asig = ddldia_asig.Text;
             dt.descripcion_asig = txtdescripcion_asig.Text;
-            dt.id_amb = Convert.ToInt16(ambiente.Text);
-            dt.id_ficha = Convert.ToInt16(ficha.Text);
-            dt.id_resul = Convert.ToInt16(resultado.Text);
-            dt.id_instru = Convert.ToInt16(instructor.Text);
+            dt.id_amb = Convert.ToInt32(ambiente.Text);
+            dt.id_ficha = Convert.ToInt32(ficha.Text);
+            dt.id_resul = Convert.ToInt32(resultado.Text);
+            dt.id_instru = Convert.ToInt32(instructor.Text);
 
 
 
@@ -80,10 +80,10 @@ namespace HorarioCtgi
             dt.horafin_asig = Convert.ToDateTime(txthora_fin.Text);
             dt.dia_asig = ddldia_asig.Text;
             dt.descripcion_asig = txtdescripcion_asig.Text;
-            dt.id_amb = Convert.ToInt16(ambiente.Text);
-            dt.id_ficha = Convert.ToInt16(ficha.Text);
-            dt.id_resul = Convert.ToInt16(resultado.Text);
-            dt.id_instru = Convert.ToInt16(instructor.Text);
+            dt.id_amb = Convert.ToInt32(ambiente.Text);
+            dt.id_ficha = Convert.ToInt32(ficha.Text);
+            dt.id_resul = Convert.ToInt32(resultado.Text);
+            dt.id_instru = Convert.ToInt32(instructor.Text);
             cd.modificarAsignacion(dt);
         }
 

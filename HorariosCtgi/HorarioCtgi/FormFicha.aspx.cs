@@ -23,10 +23,10 @@ namespace HorarioCtgi
         protected void GuardarFicha_Click(object sender, EventArgs e)
         {
             ficha.codigo_ficha = Convert.ToInt64(txtcodigo.Text);
-            ficha.id_programa = Convert.ToInt16(ddlnombre_programa.SelectedItem.Value);
-            ficha.ningregantes_ficha = Convert.ToInt16(txtnintegrante.Text);
+            ficha.id_programa = Convert.ToInt32(ddlnombre_programa.SelectedItem.Value);
+            ficha.ningregantes_ficha = Convert.ToInt32(txtnintegrante.Text);
             ficha.jornada_ficha = ddljornada.SelectedItem.Value;
-            ficha.id_cohorte = Convert.ToInt16(ddlcohorte.SelectedItem.Value);
+            ficha.id_cohorte = Convert.ToInt32(ddlcohorte.SelectedItem.Value);
             daoficha.insertarFicha(ficha);
         }
 

@@ -27,7 +27,7 @@ namespace HorarioCtgi
             cohorte.fecha_inicio = Convert.ToDateTime(txtfecha_inicio.Text);
             cohorte.fecha_fin = Convert.ToDateTime(txtfecha_fin.Text);
             cohorte.año_cohorte = txtano.Text;
-            cohorte.trimestre_cohorte = Convert.ToInt16(ddltrimestre.Text);
+            cohorte.trimestre_cohorte = Convert.ToInt32(ddltrimestre.Text);
             datoc.insertarCohorte(cohorte);
         }
 
