@@ -155,7 +155,7 @@
                            
                                 <div> 
                                         <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_coho" OnPageIndexChanging="DTVListar_PageIndexChanging"
-                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating">  
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound" OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating">  
                     <Columns>  
                        <asp:BoundField HeaderText="Codigo" ReadOnly="true" DataField="codigo_coho" />
                                         <asp:BoundField HeaderText="Nombre" DataField="nombre_coho" />

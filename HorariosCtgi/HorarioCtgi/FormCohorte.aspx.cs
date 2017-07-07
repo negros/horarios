@@ -33,7 +33,7 @@ namespace HorarioCtgi
 
         protected void EliminarCohorte_Click(object sender, EventArgs e)
         {
-           
+
         }
 
 
@@ -58,7 +58,7 @@ namespace HorarioCtgi
         // Metodo para borrar registros a traves de la GridView 
         protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-           
+
         }
 
         //Metodo para habilitar opciones de editar o cancelar
@@ -72,7 +72,7 @@ namespace HorarioCtgi
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
-         
+
             TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
             TextBox textfecha_inicio = (TextBox)row.Cells[2].Controls[0];
             TextBox textfecha_fin = (TextBox)row.Cells[3].Controls[0];
@@ -100,6 +100,22 @@ namespace HorarioCtgi
         {
             DTVListar.EditIndex = -1;
             ListarCohorte_Click(sender, e);
+        }
+
+
+        protected void DTVListar_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                DateTime s = Convert.ToDateTime(e.Row.Cells[2].Text);
+                e.Row.Cells[2].Text = s.ToString("dd/MM/yyyy");
+                s = Convert.ToDateTime(e.Row.Cells[3].Text);
+                e.Row.Cells[3].Text = s.ToString("dd/MM/yyyy");
+            }
+            catch
+            {
+
+            }
         }
     }
 }

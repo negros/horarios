@@ -210,9 +210,6 @@
                                             <asp:CommandField ShowHeader="false" ShowEditButton="true" />
                                             <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                         </Columns>
-                                        
-                                            
-                                            
                                     </asp:GridView>
                                 </div>
 
