@@ -231,7 +231,6 @@
                                 </p>
 
                                 <!-- Lista -->
-
                                 <div>
                                     <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="cod_asig" OnPageIndexChanging="DTVListar_PageIndexChanging"
                                          OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
