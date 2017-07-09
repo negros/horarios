@@ -174,7 +174,7 @@
                                        
                                         
 
-                                             <asp:BoundField HeaderText="Nombre" DataField="nombre_prog" />
+                                             <asp:BoundField HeaderText="Nombre *" DataField="nombre_prog" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="DropDownList2" runat="server" 
@@ -183,7 +183,7 @@
                                                         DataValueField="id_prog"></asp:DropDownList>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-                                             <asp:BoundField HeaderText="Jornada" DataField="jornada_ficha" />
+                                             <asp:BoundField HeaderText="Jornada *" DataField="jornada_ficha" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="DropDownList1" runat="server" CssClass="browser-default">
@@ -194,7 +194,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:BoundField HeaderText="Cohorte" DataField="nombre_coho" />
+                                            <asp:BoundField HeaderText="Cohorte *" DataField="nombre_coho" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ddlcohorte" runat="server"

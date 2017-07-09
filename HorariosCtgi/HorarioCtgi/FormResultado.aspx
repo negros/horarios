@@ -165,9 +165,9 @@
                                     <Columns>
                                       
                                         <asp:BoundField DataField="codigo_resu" ReadOnly="true" HeaderText="Código" SortExpression="codigo_resu" />
-                                        <asp:BoundField DataField="nombre_resu" HeaderText="Nombre" SortExpression="nombre_resu" />
+                                        <asp:BoundField DataField="nombre_resu" HeaderText="Nombre *" SortExpression="nombre_resu" />
                                         <asp:BoundField DataField="descripcion_resu" HeaderText="Descripcion" SortExpression="descripcion_resu" />
-                                        <asp:BoundField DataField="nombre_comp" HeaderText="Competencia" SortExpression="nombre_comp" />
+                                        <asp:BoundField DataField="nombre_comp" HeaderText="Competencia *" SortExpression="nombre_comp" />
                                          <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="competencia" runat="server"

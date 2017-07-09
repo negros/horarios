@@ -232,12 +232,6 @@
 
                                 <!-- Lista -->
 
-
-
-
-                                <!---------------------------------------------------------------------------------------------->
-
-
                                 <div>
                                     <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="cod_asig" OnPageIndexChanging="DTVListar_PageIndexChanging"
                                          OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
@@ -247,7 +241,7 @@
 
 
 
-                                            <asp:BoundField DataField="fechainicio_asig" HeaderText="Fecha Asignación" SortExpression="fechainicio_asig"  />
+                                            <asp:BoundField DataField="fechainicio_asig" HeaderText="Fecha Asignación*" SortExpression="fechainicio_asig"  />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtfecha_ini" runat="server" TextMode="Date" class="validate"></asp:TextBox>
@@ -255,28 +249,28 @@
                                             </asp:TemplateField>
 
 
-                                            <asp:BoundField DataField="fechafin_asig" HeaderText="Fecha Fin Asignación" SortExpression="fechafin_asig" />
+                                            <asp:BoundField DataField="fechafin_asig" HeaderText="Fecha Fin Asignación*" SortExpression="fechafin_asig" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txtfecha_fin" runat="server" TextMode="Date" class="validate"></asp:TextBox>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:BoundField DataField="horainicio_asig" HeaderText="Hora Inicio Asignación" SortExpression="horainicio_asig" />
+                                            <asp:BoundField DataField="horainicio_asig" HeaderText="Hora Inicio Asignación*" SortExpression="horainicio_asig" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txthora_ini" runat="server" TextMode="Time" class="validate"></asp:TextBox>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:BoundField DataField="horafin_asig" HeaderText="Hora Fin Asignación" SortExpression="horafin_asig" />
+                                            <asp:BoundField DataField="horafin_asig" HeaderText="Hora Fin Asignación *" SortExpression="horafin_asig" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:TextBox ID="txthora_fin" runat="server" TextMode="Time" class="validate"></asp:TextBox>
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:BoundField DataField="dia_asig" HeaderText="Día Asignación" SortExpression="dia_asig" />
+                                            <asp:BoundField DataField="dia_asig" HeaderText="Día Asignación*" SortExpression="dia_asig" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ddldia_asig" runat="server" CssClass="browser-default">
@@ -295,7 +289,7 @@
                                             
 
 
-                                            <asp:BoundField DataField="nombre_amb" HeaderText="Nombre Ambiente" SortExpression="nombre_amb" />
+                                            <asp:BoundField DataField="nombre_amb" HeaderText="Nombre Ambiente *" SortExpression="nombre_amb" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ambiente" runat="server"
@@ -309,7 +303,7 @@
 
 
 
-                                            <asp:BoundField DataField="codigo_ficha" HeaderText="Codigo Ficha" SortExpression="codigo_ficha" />
+                                            <asp:BoundField DataField="codigo_ficha" HeaderText="Codigo Ficha *" SortExpression="codigo_ficha" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="ficha" runat="server"
@@ -320,7 +314,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre Ins" SortExpression="nombre_instructor" />
+                                            <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre Ins *" SortExpression="nombre_instructor" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>
                                                     <asp:DropDownList ID="instructor" runat="server"
@@ -331,7 +325,7 @@
                                                 </ItemTemplate>
                                             </asp:TemplateField>
 
-                                            <asp:BoundField DataField="nombre_resu" HeaderText="Resultado Apren" SortExpression="nombre_resu" />
+                                            <asp:BoundField DataField="nombre_resu" HeaderText="Resultado Apren *" SortExpression="nombre_resu" />
 
                                             <asp:TemplateField>
                                                 <ItemTemplate>

@@ -158,10 +158,10 @@
                                     <Columns>
                                       
                                         <asp:BoundField HeaderText="Código Programa" ReadOnly="true" DataField="codigo_prog" />
-                                        <asp:BoundField HeaderText="Nombre Programa" DataField="nombre_prog" />
+                                        <asp:BoundField HeaderText="Nombre Programa *" DataField="nombre_prog" />
                                         <asp:BoundField HeaderText="Descripción" DataField="descripcion_prog" />
-                                        <asp:BoundField HeaderText="Version Programa" DataField="version_prog" />
-                                        <asp:BoundField HeaderText="Linea" DataField="nombre_linea_tecno" />
+                                        <asp:BoundField HeaderText="Version Programa *" DataField="version_prog" />
+                                        <asp:BoundField HeaderText="Linea *" DataField="nombre_linea_tecno" />
                                          <asp:TemplateField>
                                                 <ItemTemplate>
                                                      <asp:DropDownList ID="lintec" runat="server"

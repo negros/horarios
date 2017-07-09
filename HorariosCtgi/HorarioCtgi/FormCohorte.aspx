@@ -132,9 +132,9 @@
                                         <td>
                                             <asp:DropDownList ID="ddltrimestre" runat="server" CssClass="browser-default">
                                                 <asp:ListItem Value="" disabled Selected> Trimestre </asp:ListItem>
-                                                <asp:ListItem Value="1"> 1° Trimestre </asp:ListItem>
-                                                <asp:ListItem Value="2"> 2° Trimestre </asp:ListItem>
-                                                <asp:ListItem Value="3"> 3° Trimestre </asp:ListItem>
+                                                <asp:ListItem Value="1">1° Trimestre</asp:ListItem>
+                                                <asp:ListItem Value="2">2° Trimestre</asp:ListItem>
+                                                <asp:ListItem Value="3">3° Trimestre</asp:ListItem>
                                                 <asp:ListItem Value="4">4° Trimestre</asp:ListItem>
                                             </asp:DropDownList>
                                         </td>
@@ -158,11 +158,11 @@
                                          OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound" OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating">  
                     <Columns>  
                        <asp:BoundField HeaderText="Codigo" ReadOnly="true" DataField="codigo_coho" />
-                                        <asp:BoundField HeaderText="Nombre" DataField="nombre_coho" />
-                                        <asp:BoundField HeaderText="Fecha inicio" DataField="fechainicio_coho" />
-                                        <asp:BoundField HeaderText="Fecha fin" DataField="fechafin_coho" />
-                                        <asp:BoundField HeaderText="Año" DataField="año_coho" />
-                                        <asp:BoundField HeaderText="Trimestre" DataField="trimestre_coho"/>
+                                        <asp:BoundField HeaderText="Nombre *" DataField="nombre_coho" />
+                                        <asp:BoundField HeaderText="Fecha inicio *" DataField="fechainicio_coho" />
+                                        <asp:BoundField HeaderText="Fecha fin *" DataField="fechafin_coho" />
+                                        <asp:BoundField HeaderText="Año *" DataField="año_coho" />
+                                        <asp:BoundField HeaderText="Trimestre *" DataField="trimestre_coho"/>
                         <asp:CommandField ShowEditButton="true" />  
                      </Columns>  
                  

@@ -139,8 +139,8 @@
                                          OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting">
                                     <Columns>
                                         <asp:BoundField DataField="dni_instructor" ReadOnly="true" HeaderText="DNI del Instructor" SortExpression="dni_instruc" />
-                                        <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre del Instructor" SortExpression="nombre_instruc" />
-                                        <asp:BoundField DataField="apellido_instructor" HeaderText="Nombre del TeInstructor" SortExpression="napellido_instruc" />
+                                        <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre del Instructor *" SortExpression="nombre_instruc" />
+                                        <asp:BoundField DataField="apellido_instructor" HeaderText="Apellido del Instructor *" SortExpression="apellido_instruc" />
                                         <asp:BoundField DataField="profesion" HeaderText="Profesión del Instructor" SortExpression="profesion_instruc" />
                                         <asp:CommandField ShowHeader="false" ShowEditButton="true" />
                                         <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />

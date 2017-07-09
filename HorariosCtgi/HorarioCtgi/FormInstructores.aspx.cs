@@ -12,7 +12,7 @@ namespace HorarioCtgi
 {
     public partial class FormInstructores : System.Web.UI.Page
     {
-      
+
         protected void Page_Load(object sender, EventArgs e)
         {
             chafe1.Text = DateTime.Now.ToShortDateString();
@@ -29,7 +29,7 @@ namespace HorarioCtgi
             cd.insertarInstructores(dt);
         }
 
-        
+
 
         protected void Consultar(object sender, EventArgs e)
         {
@@ -51,12 +51,21 @@ namespace HorarioCtgi
         }
         protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
-            DTOInstructores dt = new DTOInstructores();
-            dt.Dni_instructor = Convert.ToInt32(DTVListar.DataKeys[e.RowIndex].Value.ToString());
-            CADInstructores cd = new CADInstructores();
-            cd.eliminarInstructores(dt);
-            btnListar_Click(sender, e);
+            try
+            {
+                DTOInstructores dt = new DTOInstructores();
+                dt.Dni_instructor = Convert.ToInt32(DTVListar.DataKeys[e.RowIndex].Value.ToString());
+                CADInstructores cd = new CADInstructores();
+                cd.eliminarInstructores(dt);
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+            }
+            finally
+            {
+                btnListar_Click(sender, e);
+            }
         }
 
         //Metodo para habilitar opciones de editar o cancelar
@@ -69,20 +78,34 @@ namespace HorarioCtgi
         //Metodo Actualizar
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-           DTOInstructores dt = new DTOInstructores();
-            GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
 
-            TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
-            TextBox textApellido = (TextBox)row.Cells[2].Controls[0];
-            TextBox textprofesion= (TextBox)row.Cells[3].Controls[0];
-            dt.Dni_instructor  = Convert.ToInt32(row.Cells[0].Text);
-            dt.Nombre_instructor = textnombre.Text;
-            dt.Apellido_instructor = textApellido.Text;
-            dt.Profesion_instructor = textprofesion.Text;
-            CADInstructores cd = new CADInstructores();
-            cd.modificarInstructores(dt);
-            DTVListar.EditIndex = -1;
-            btnListar_Click(sender, e);
+
+            try
+            {
+                DTOInstructores dt = new DTOInstructores();
+                GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+                TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
+                TextBox textApellido = (TextBox)row.Cells[2].Controls[0];
+                TextBox textprofesion = (TextBox)row.Cells[3].Controls[0];
+                dt.Dni_instructor = Convert.ToInt32(row.Cells[0].Text);
+                dt.Nombre_instructor = textnombre.Text;
+                dt.Apellido_instructor = textApellido.Text;
+                dt.Profesion_instructor = textprofesion.Text;
+                CADInstructores cd = new CADInstructores();
+                if (isEmptyOrNull(dt.Nombre_instructor)|| isEmptyOrNull(dt.Apellido_instructor)) {
+                    Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
+                } else {
+                    cd.modificarInstructores(dt);
+                    DTVListar.EditIndex = -1;
+                    btnListar_Click(sender, e);
+                }
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                DTVListar.EditIndex = -1;
+                btnListar_Click(sender, e);
+            }
         }
         // metodo para paginacion
         protected void DTVListar_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -96,6 +119,20 @@ namespace HorarioCtgi
         {
             DTVListar.EditIndex = -1;
             btnListar_Click(sender, e);
+        }
+
+
+        protected Boolean isEmptyOrNull(String var)
+        {
+
+            if (var.Equals("") || var == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

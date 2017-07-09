@@ -71,22 +71,43 @@ namespace HorarioCtgi
         //Metodo Actualizar
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+            try
+            {
 
-            TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
-            TextBox textfecha_inicio = (TextBox)row.Cells[2].Controls[0];
-            TextBox textfecha_fin = (TextBox)row.Cells[3].Controls[0];
-            TextBox textano = (TextBox)row.Cells[4].Controls[0];
-            TextBox textTrimeste = (TextBox)row.Cells[5].Controls[0];
-            cohorte.codigo_cohorte = Convert.ToInt64(row.Cells[0].Text);
-            cohorte.nombre_cohorte = textnombre.Text;
-            cohorte.fecha_inicio = Convert.ToDateTime(textfecha_inicio.Text);
-            cohorte.fecha_fin = Convert.ToDateTime(textfecha_fin.Text);
-            cohorte.año_cohorte = textano.Text;
-            cohorte.trimestre_cohorte = Convert.ToInt32(textTrimeste.Text);
-            datoc.actualizarCohorte(cohorte);
-            DTVListar.EditIndex = -1;
-            ListarCohorte_Click(sender, e);
+                GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+                TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
+                TextBox textfecha_inicio = (TextBox)row.Cells[2].Controls[0];
+                TextBox textfecha_fin = (TextBox)row.Cells[3].Controls[0];
+                TextBox textano = (TextBox)row.Cells[4].Controls[0];
+                TextBox textTrimeste = (TextBox)row.Cells[5].Controls[0];
+
+
+                cohorte.codigo_cohorte = Convert.ToInt64(row.Cells[0].Text);
+                cohorte.nombre_cohorte = textnombre.Text;
+                cohorte.fecha_inicio = Convert.ToDateTime(textfecha_inicio.Text);
+                cohorte.fecha_fin = Convert.ToDateTime(textfecha_fin.Text);
+                cohorte.año_cohorte = textano.Text;
+                cohorte.trimestre_cohorte = Convert.ToInt32(textTrimeste.Text);
+                if (isEmptyOrNull(cohorte.nombre_cohorte) || isEmptyOrNull(cohorte.fecha_inicio.ToString()) || isEmptyOrNull(cohorte.fecha_fin.ToString())
+                    || isEmptyOrNull(cohorte.año_cohorte) || isEmptyOrNull(cohorte.trimestre_cohorte.ToString()))
+                {
+                    Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
+                }
+                else
+                {
+                    datoc.actualizarCohorte(cohorte);
+                    DTVListar.EditIndex = -1;
+                    ListarCohorte_Click(sender, e);
+                }
+
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                DTVListar.EditIndex = -1;
+                ListarCohorte_Click(sender, e);
+            }
+
         }
         // metodo para paginacion
         protected void DTVListar_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -117,5 +138,20 @@ namespace HorarioCtgi
 
             }
         }
+
+        protected Boolean isEmptyOrNull(String var)
+        {
+
+            if (var.Equals("") || var == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
     }
 }
