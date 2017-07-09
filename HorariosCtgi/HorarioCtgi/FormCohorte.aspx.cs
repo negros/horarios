@@ -31,10 +31,6 @@ namespace HorarioCtgi
             datoc.insertarCohorte(cohorte);
         }
 
-        protected void EliminarCohorte_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         protected void BuscarCohorte_Click(object sender, EventArgs e)
@@ -58,7 +54,7 @@ namespace HorarioCtgi
         // Metodo para borrar registros a traves de la GridView 
         protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
+        //Metodo para eliminar desde Tabla
         }
 
         //Metodo para habilitar opciones de editar o cancelar

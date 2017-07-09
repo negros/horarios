@@ -126,7 +126,6 @@ namespace Controlador
             con.Open();
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             sda.Fill(data);
-       
             con.Close();
             return data;
         }
