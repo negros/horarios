@@ -146,28 +146,25 @@
 
                                 <!-- Lista -->
 
-                           
 
-
-
-                                      <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="codigo_tema" 
-                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
+                                <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="codigo_tema"
+                                    OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound" OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting">
                                     <Columns>
-                                      
-                                          <asp:BoundField DataField="codigo_tema" ReadOnly="true" HeaderText="Codigo del Tema" SortExpression="codigo_tema" />
-                                        <asp:BoundField DataField="nombre_tema" HeaderText="Nombre del Tema" SortExpression="nombre_tema" />
+
+                                        <asp:BoundField DataField="codigo_tema" ReadOnly="true" HeaderText="Codigo del Tema" SortExpression="codigo_tema" />
+                                        <asp:BoundField DataField="nombre_tema" HeaderText="Nombre del Tema *" SortExpression="nombre_tema" />
                                         <asp:BoundField DataField="descripcion_tema" HeaderText="Descripcion del Tema" SortExpression="descripcion_tema" />
-                                        <asp:BoundField DataField="nombre_resu" HeaderText="Resultado" SortExpression="Resultado" />
-                                         <asp:TemplateField>
-                                                <ItemTemplate>
-                                                     <asp:DropDownList ID="resultado" runat="server"
-                                                DataTextField="nombre_resu"
-                                                DataValueField="id_resu"
-                                                DataSourceID="SqlDataSource1">
-                                            </asp:DropDownList>
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                        <asp:BoundField  DataField="id_resultado" />
+                                        <asp:BoundField DataField="nombre_resu" HeaderText="Resultado *" SortExpression="Resultado" />
+                                        <asp:TemplateField>
+                                            <ItemTemplate>
+                                                <asp:DropDownList ID="resultado" runat="server"
+                                                    DataTextField="nombre_resu"
+                                                    DataValueField="id_resu"
+                                                    DataSourceID="SqlDataSource1">
+                                                </asp:DropDownList>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="id_resultado" />
                                         <asp:CommandField ShowHeader="false" ShowEditButton="true" />
                                         <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                     </Columns>

@@ -47,10 +47,20 @@ namespace HorarioCtgi
         // Metodo para borrar registros a traves de la GridView 
         protected void grvAmbientes_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            GridViewRow row = (GridViewRow)grvAmbientes.Rows[e.RowIndex];
-            dt.codigo_amb = Convert.ToInt32(grvAmbientes.DataKeys[e.RowIndex].Value.ToString());
-            cd.eliminarAmbiente(dt);
-            btnListar_Click(sender,e);
+            try
+            {
+                GridViewRow row = (GridViewRow)grvAmbientes.Rows[e.RowIndex];
+                dt.codigo_amb = Convert.ToInt32(grvAmbientes.DataKeys[e.RowIndex].Value.ToString());
+                cd.eliminarAmbiente(dt);
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+            }
+            finally
+            {
+                btnListar_Click(sender, e);
+            }
         }
 
         //Metodo para habilitar opciones de editar o cancelar
@@ -63,18 +73,36 @@ namespace HorarioCtgi
         //Metodo Actualizar
         protected void grvAmbientes_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow row = (GridViewRow)grvAmbientes.Rows[e.RowIndex];
-            TextBox textCodAmb = (TextBox)row.Cells[0].Controls[0];
-            TextBox textNombreAmb= (TextBox)row.Cells[1].Controls[0];
-            TextBox textCapacidadAmb= (TextBox)row.Cells[2].Controls[0];
-            TextBox textEstadoAmb = (TextBox)row.Cells[3].Controls[0];
-            dt.codigo_amb = Convert.ToInt32(textCodAmb.Text);
-            dt.nombre_amb = textNombreAmb.Text;
-            dt.capacidad_amb = textCapacidadAmb.Text;
-            dt.estado_amb = textEstadoAmb.Text;
-            cd.modificarAmbiente(dt);
-            grvAmbientes.EditIndex = -1;
-            btnListar_Click(sender, e);
+            try
+            {
+                GridViewRow row = (GridViewRow)grvAmbientes.Rows[e.RowIndex];
+                TextBox textCodAmb = (TextBox)row.Cells[0].Controls[0];
+                TextBox textNombreAmb = (TextBox)row.Cells[1].Controls[0];
+                TextBox textCapacidadAmb = (TextBox)row.Cells[2].Controls[0];
+                TextBox textEstadoAmb = (TextBox)row.Cells[3].Controls[0];
+                dt.codigo_amb = Convert.ToInt32(textCodAmb.Text);
+                dt.nombre_amb = textNombreAmb.Text;
+                dt.capacidad_amb = textCapacidadAmb.Text;
+                dt.estado_amb = textEstadoAmb.Text;
+                if (dt.nombre_amb == null || dt.nombre_amb.Equals("") || dt.estado_amb == null || dt.estado_amb.Equals(""))
+                {
+                    Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
+                }
+                else
+                {
+                    cd.modificarAmbiente(dt);
+                    grvAmbientes.EditIndex = -1;
+                    btnListar_Click(sender, e);
+                }
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                grvAmbientes.EditIndex = -1;
+                btnListar_Click(sender, e);
+            }
+
+
         }
         // metodo para paginacion
         protected void grvAmbientes_PageIndexChanging(object sender, GridViewPageEventArgs e)

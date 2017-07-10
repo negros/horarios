@@ -31,7 +31,7 @@ namespace HorarioCtgi
             datos.insertarPrograma(cpts);
         }
 
-      
+
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
@@ -42,7 +42,7 @@ namespace HorarioCtgi
             lintec.SelectedValue = Convert.ToString(cpts.id_linea);
         }
 
-    
+
 
         protected void Listar_Click(object sender, EventArgs e)
         {
@@ -53,55 +53,88 @@ namespace HorarioCtgi
         }
         protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-
-            cpts.cod_programa = Convert.ToInt32(DTVListar.DataKeys[e.RowIndex].Value.ToString());    
-            datos.eliminar(cpts);
-            Listar_Click(sender, e);
+            try
+            {
+                cpts.cod_programa = Convert.ToInt32(DTVListar.DataKeys[e.RowIndex].Value.ToString());
+                datos.eliminar(cpts);
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+            }
+            finally
+            {
+                Listar_Click(sender, e);
+            }
         }
 
         //Metodo para habilitar opciones de editar o cancelar
         protected void DTVListar_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            DTVListar.EditIndex = e.NewEditIndex;
-            Listar_Click(sender, e);
-            DTVListar.Rows[e.NewEditIndex].Cells[4].Visible = false;
-            DTVListar.Rows[e.NewEditIndex].Cells[5].Visible = true;
-            DropDownList ddlLinea = (DropDownList)DTVListar.Rows[e.NewEditIndex].Cells[5].Controls[1];
-            TextBox lineaActual = (TextBox)DTVListar.Rows[e.NewEditIndex].Cells[6].Controls[0];
-            ddlLinea.SelectedValue = lineaActual.Text;
+            try
+            {
+                DTVListar.EditIndex = e.NewEditIndex;
+                Listar_Click(sender, e);
+                DTVListar.Rows[e.NewEditIndex].Cells[4].Visible = false;
+                DTVListar.Rows[e.NewEditIndex].Cells[5].Visible = true;
+                DropDownList ddlLinea = (DropDownList)DTVListar.Rows[e.NewEditIndex].Cells[5].Controls[1];
+                TextBox lineaActual = (TextBox)DTVListar.Rows[e.NewEditIndex].Cells[6].Controls[0];
+                ddlLinea.SelectedValue = lineaActual.Text;
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                DTVListar.EditIndex = -1;
+                Listar_Click(sender, e);
+            }
         }
 
         //Metodo Actualizar
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-           
-             GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+            try
+            {
+                GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+                TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
+                TextBox textDescripcion = (TextBox)row.Cells[2].Controls[0];
+                TextBox textVersion = (TextBox)row.Cells[3].Controls[0];
+                DropDownList tidLinea = (DropDownList)row.Cells[5].Controls[1];
+                cpts.cod_programa = Convert.ToInt32(row.Cells[0].Text);
+                cpts.nombre_prog = textnombre.Text;
+                cpts.descripcion_prog = textDescripcion.Text;
+                cpts.version_prog = textVersion.Text;
+                cpts.id_linea = Convert.ToInt32(tidLinea.SelectedItem.Value);
 
-             TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
-             TextBox textDescripcion = (TextBox)row.Cells[2].Controls[0];
-             TextBox textVersion = (TextBox)row.Cells[3].Controls[0];
-            DropDownList tidLinea = (DropDownList)row.Cells[5].Controls[1];
-             cpts.cod_programa = Convert.ToInt32(row.Cells[0].Text);
-             cpts.nombre_prog = textnombre.Text;
-             cpts.descripcion_prog = textDescripcion.Text;
-             cpts.version_prog = textVersion.Text;
-          cpts.id_linea= Convert.ToInt32(tidLinea.SelectedItem.Value);
-            datos.modificar(cpts);
-             DTVListar.EditIndex = -1;
-            Listar_Click(sender, e);
+                if (isEmptyOrNull(cpts.nombre_prog) || isEmptyOrNull(cpts.version_prog) || isEmptyOrNull(cpts.id_linea.ToString()))
+                {
+                    Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
+                }
+                else
+                {
+                    datos.modificar(cpts);
+                    DTVListar.EditIndex = -1;
+                    Listar_Click(sender, e);
+                }
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                DTVListar.EditIndex = -1;
+                Listar_Click(sender, e);
+            }
         }
         // metodo para paginacion
         protected void DTVListar_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             DTVListar.PageIndex = e.NewPageIndex;
-             Listar_Click(sender, e);
+            Listar_Click(sender, e);
         }
 
         //boton cancelar edicion
         protected void DTVListar_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-               DTVListar.EditIndex = -1;
-              Listar_Click(sender, e);
+            DTVListar.EditIndex = -1;
+            Listar_Click(sender, e);
         }
 
         protected void DTVListar_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -109,6 +142,19 @@ namespace HorarioCtgi
             e.Row.Cells[5].Visible = false;
             e.Row.Cells[6].Visible = false;
             e.Row.Cells[4].Visible = true;
+        }
+
+        protected Boolean isEmptyOrNull(String var)
+        {
+
+            if (var.Equals("") || var == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

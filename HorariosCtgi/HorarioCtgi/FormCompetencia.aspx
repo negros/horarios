@@ -154,9 +154,9 @@
                                     <asp:GridView ID="grvCompetencia" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_comp" OnPageIndexChanging="grvCompetencia_PageIndexChanging" OnRowDataBound="GridView_RowDataBound" OnRowCancelingEdit="grvCompetencia_RowCancelingEdit" OnRowDeleting="grvCompetencia_RowDeleting" OnRowEditing="grvCompetencia_RowEditing" OnRowUpdating="grvCompetencia_RowUpdating">
                                         <Columns>
                                             <asp:BoundField DataField="codigo_comp" ReadOnly="true" HeaderText="Codigo Competencia" SortExpression="codigo_comp" />
-                                            <asp:BoundField DataField="nombre_comp" HeaderText="Nombre Competencia" SortExpression="nombre_comp" />
+                                            <asp:BoundField DataField="nombre_comp" HeaderText="Nombre Competencia *" SortExpression="nombre_comp" />
                                             <asp:BoundField DataField="descripcion_comp" HeaderText="Descripción" SortExpression="descripcion_comp" />
-                                            <asp:BoundField DataField="nombre_prog" HeaderText="Nombre Programa" SortExpression="nombre_prog" />
+                                            <asp:BoundField DataField="nombre_prog" HeaderText="Nombre Programa *" SortExpression="nombre_prog" />
                                             <asp:BoundField DataField="id_prog" HeaderText="id Programa" SortExpression="id_prog" />
                                             <asp:TemplateField>
                                                 <ItemTemplate>

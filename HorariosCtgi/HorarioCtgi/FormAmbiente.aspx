@@ -144,10 +144,10 @@
                                  <div>  
                 <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" DataKeyNames="codigo_amb" OnPageIndexChanging="grvAmbientes_PageIndexChanging" OnRowCancelingEdit="grvAmbientes_RowCancelingEdit" OnRowDeleting="grvAmbientes_RowDeleting" OnRowEditing="grvAmbientes_RowEditing" OnRowUpdating="grvAmbientes_RowUpdating">  
                     <Columns>  
-                       <asp:BoundField DataField="codigo_amb" ReadOnly="true" HeaderText="Codigo del ambiente" SortExpression="codigo_amb" />
-                                        <asp:BoundField DataField="nombre_amb" HeaderText="Nombre del ambiente" SortExpression="nombre_amb" />
+                       <asp:BoundField DataField="codigo_amb" ReadOnly="true" HeaderText="Codigo del ambiente *" SortExpression="codigo_amb" />
+                                        <asp:BoundField DataField="nombre_amb" HeaderText="Nombre del ambiente *" SortExpression="nombre_amb" />
                                         <asp:BoundField DataField="capacidad_amb" HeaderText="Capacidad del ambiente" SortExpression="capacidad_amb" />
-                                        <asp:BoundField DataField="estado_amb" HeaderText="Estado del ambiente" SortExpression="estado_amb" />
+                                        <asp:BoundField DataField="estado_amb" HeaderText="Estado del ambiente *" SortExpression="estado_amb" />
                         <asp:CommandField ShowEditButton="true" />  
                         <asp:CommandField ShowDeleteButton="true" /> </Columns>  
                  

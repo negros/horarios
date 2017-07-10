@@ -116,7 +116,8 @@ namespace Controlador
         public DataTable listarAsignacion()
         {
             DataTable data = new DataTable();
-            Modelo.DTOHorario dt = new Modelo.DTOHorario();
+            SqlCommand cmd = new SqlCommand();
+            SqlConnection con;
             con = new SqlConnection(cadena);
             cmd.Connection = con;
             cmd.CommandText = "ProcedureAsignaciones";

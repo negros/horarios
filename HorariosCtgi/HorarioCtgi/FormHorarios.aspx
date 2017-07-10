@@ -131,9 +131,19 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <label for="txtdia_asig">Día Asignación</label></td>
+                                            <label for="ddldia_asig">Día Asignación</label></td>
                                         <td>
-                                            <asp:TextBox ID="txtdia_asig" runat="server" class="validate"></asp:TextBox></td>
+                                            <asp:DropDownList ID="ddldia_asig" runat="server" CssClass="browser-default">
+                                                <asp:ListItem Value="Lunes"> Lunes </asp:ListItem>
+                                                <asp:ListItem Value="Martes"> Martes </asp:ListItem>
+                                                <asp:ListItem Value="Miercoles"> Miercoles </asp:ListItem>
+                                                <asp:ListItem Value="Jueves"> Jueves </asp:ListItem>
+                                                <asp:ListItem Value="Viernes"> Viernes </asp:ListItem>
+                                                <asp:ListItem Value="Sabado"> Sabado </asp:ListItem>
+                                                <asp:ListItem Value="Domingo"> Domingo </asp:ListItem>
+                                            </asp:DropDownList>
+
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td>
@@ -216,29 +226,126 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button class="button button--inline-block button--medium" ID="btnInsertar" runat="server" Text="Insertar" OnClick="btnInsertar_Click" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnModificar" runat="server" Text="Modificar" OnClick="btnModificar_Click" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="btnEliminar" runat="server" Text="Eliminar" OnClick="btnEliminar_Click" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnConsultar" runat="server" Text="Consultar" OnClick="btnConsultar_Click" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnListar" runat="server" Text="Listar" OnClick="btnListar_Click" />
                                 </p>
 
                                 <!-- Lista -->
+                                <div>
+                                    <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" DataKeyNames="cod_asig" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit" OnRowDataBound="DTVListar_RowDataBound"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting" >
+                                        <Columns>
 
-                                <asp:GridView ID="listaAsig" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
-                                    <Columns>
-                                        <asp:BoundField DataField="cod_asig" HeaderText="Codigo Asignación" SortExpression="cod_asig" />
-                                        <asp:BoundField DataField="fechainicio_asig" HeaderText="Fecha Asignación" SortExpression="fechainicio_asig" />
-                                        <asp:BoundField DataField="fechafin_asig" HeaderText="Fecha Fin Asignación" SortExpression="fechafin_asig" />
-                                        <asp:BoundField DataField="horainicio_asig" HeaderText="Hora Inicio Asignación" SortExpression="horainicio_asig" />
-                                        <asp:BoundField DataField="horafin_asig" HeaderText="Hora Fin Asignación" SortExpression="horafin_asig" />
-                                        <asp:BoundField DataField="dia_asig" HeaderText="Día Asignación" SortExpression="dia_asig" />
-                                        <asp:BoundField DataField="descripcion_asig" HeaderText="Descripción Asignación" SortExpression="descripcion_asig" />
-                                        <asp:BoundField DataField="nombre_amb" HeaderText="Nombre Ambiente" SortExpression="nombre_amb" />
-                                        <asp:BoundField DataField="codigo_ficha" HeaderText="Codigo Ficha" SortExpression="codigo_ficha" />
-                                        <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre Ins" SortExpression="nombre_instructor" />
-                                        <asp:BoundField DataField="nombre_resu" HeaderText="Resultado Apren" SortExpression="nombre_resu" />
-                                    </Columns>
-                                </asp:GridView>
+                                            <asp:BoundField DataField="cod_asig" ReadOnly="true" HeaderText="Codigo Asignación" SortExpression="cod_asig" />
+
+
+
+                                            <asp:BoundField DataField="fechainicio_asig" HeaderText="Fecha Asignación*" SortExpression="fechainicio_asig"  />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtfecha_ini" runat="server" TextMode="Date" class="validate"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+
+                                            <asp:BoundField DataField="fechafin_asig" HeaderText="Fecha Fin Asignación*" SortExpression="fechafin_asig" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txtfecha_fin" runat="server" TextMode="Date" class="validate"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField DataField="horainicio_asig" HeaderText="Hora Inicio Asignación*" SortExpression="horainicio_asig" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txthora_ini" runat="server" TextMode="Time" class="validate"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField DataField="horafin_asig" HeaderText="Hora Fin Asignación *" SortExpression="horafin_asig" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:TextBox ID="txthora_fin" runat="server" TextMode="Time" class="validate"></asp:TextBox>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField DataField="dia_asig" HeaderText="Día Asignación*" SortExpression="dia_asig" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ddldia_asig" runat="server" CssClass="browser-default">
+                                                        <asp:ListItem Value="Lunes">Lunes</asp:ListItem>
+                                                        <asp:ListItem Value="Martes">Martes</asp:ListItem>
+                                                        <asp:ListItem Value="Miercoles">Miercoles</asp:ListItem>
+                                                        <asp:ListItem Value="Jueves">Jueves</asp:ListItem>
+                                                        <asp:ListItem Value="Viernes">Viernes</asp:ListItem>
+                                                        <asp:ListItem Value="Sabado">Sabado</asp:ListItem>
+                                                        <asp:ListItem Value="Domingo">Domingo</asp:ListItem>
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+
+                                            
+
+
+                                            <asp:BoundField DataField="nombre_amb" HeaderText="Nombre Ambiente *" SortExpression="nombre_amb" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ambiente" runat="server"
+                                                        DataTextField="nombre_amb"
+                                                        DataValueField="id_amb"
+                                                        DataSourceID="SqlDataSource1">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+
+
+
+                                            <asp:BoundField DataField="codigo_ficha" HeaderText="Codigo Ficha *" SortExpression="codigo_ficha" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="ficha" runat="server"
+                                                        DataTextField="codigo_ficha"
+                                                        DataValueField="id_ficha"
+                                                        DataSourceID="SqlDataSource2">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField DataField="nombre_instructor" HeaderText="Nombre Ins *" SortExpression="nombre_instructor" />
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="instructor" runat="server"
+                                                        DataTextField="nombreins"
+                                                        DataValueField="id_instructor"
+                                                        DataSourceID="SqlDataSource4">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField DataField="nombre_resu" HeaderText="Resultado Apren *" SortExpression="nombre_resu" />
+
+                                            <asp:TemplateField>
+                                                <ItemTemplate>
+                                                    <asp:DropDownList ID="resultado" runat="server"
+                                                        DataTextField="nombre_resu"
+                                                        DataValueField="id_resu"
+                                                        DataSourceID="resultadoslista">
+                                                    </asp:DropDownList>
+                                                </ItemTemplate>
+                                            </asp:TemplateField>
+
+                                            <asp:BoundField DataField="descripcion_asig" HeaderText="Descripción Asignación" SortExpression="descripcion_asig" />
+
+                                            <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                            <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
+                                        </Columns>
+                                    </asp:GridView>
+                                </div>
+
+
+
                             </div>
                         </article>
                     </div>

@@ -27,14 +27,10 @@ namespace HorarioCtgi
             cohorte.fecha_inicio = Convert.ToDateTime(txtfecha_inicio.Text);
             cohorte.fecha_fin = Convert.ToDateTime(txtfecha_fin.Text);
             cohorte.año_cohorte = txtano.Text;
-            cohorte.trimestre_cohorte = Convert.ToInt16(ddltrimestre.Text);
+            cohorte.trimestre_cohorte = Convert.ToInt32(ddltrimestre.Text);
             datoc.insertarCohorte(cohorte);
         }
 
-        protected void EliminarCohorte_Click(object sender, EventArgs e)
-        {
-           
-        }
 
 
         protected void BuscarCohorte_Click(object sender, EventArgs e)
@@ -58,7 +54,7 @@ namespace HorarioCtgi
         // Metodo para borrar registros a traves de la GridView 
         protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-           
+        //Metodo para eliminar desde Tabla
         }
 
         //Metodo para habilitar opciones de editar o cancelar
@@ -71,22 +67,43 @@ namespace HorarioCtgi
         //Metodo Actualizar
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
-         
-            TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
-            TextBox textfecha_inicio = (TextBox)row.Cells[2].Controls[0];
-            TextBox textfecha_fin = (TextBox)row.Cells[3].Controls[0];
-            TextBox textano = (TextBox)row.Cells[4].Controls[0];
-            TextBox textTrimeste = (TextBox)row.Cells[5].Controls[0];
-            cohorte.codigo_cohorte = Convert.ToInt64(row.Cells[0].Text);
-            cohorte.nombre_cohorte = textnombre.Text;
-            cohorte.fecha_inicio = Convert.ToDateTime(textfecha_inicio.Text);
-            cohorte.fecha_fin = Convert.ToDateTime(textfecha_fin.Text);
-            cohorte.año_cohorte = textano.Text;
-            cohorte.trimestre_cohorte = Convert.ToInt32(textTrimeste.Text);
-            datoc.actualizarCohorte(cohorte);
-            DTVListar.EditIndex = -1;
-            ListarCohorte_Click(sender, e);
+            try
+            {
+
+                GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+                TextBox textnombre = (TextBox)row.Cells[1].Controls[0];
+                TextBox textfecha_inicio = (TextBox)row.Cells[2].Controls[0];
+                TextBox textfecha_fin = (TextBox)row.Cells[3].Controls[0];
+                TextBox textano = (TextBox)row.Cells[4].Controls[0];
+                TextBox textTrimeste = (TextBox)row.Cells[5].Controls[0];
+
+
+                cohorte.codigo_cohorte = Convert.ToInt64(row.Cells[0].Text);
+                cohorte.nombre_cohorte = textnombre.Text;
+                cohorte.fecha_inicio = Convert.ToDateTime(textfecha_inicio.Text);
+                cohorte.fecha_fin = Convert.ToDateTime(textfecha_fin.Text);
+                cohorte.año_cohorte = textano.Text;
+                cohorte.trimestre_cohorte = Convert.ToInt32(textTrimeste.Text);
+                if (isEmptyOrNull(cohorte.nombre_cohorte) || isEmptyOrNull(cohorte.fecha_inicio.ToString()) || isEmptyOrNull(cohorte.fecha_fin.ToString())
+                    || isEmptyOrNull(cohorte.año_cohorte) || isEmptyOrNull(cohorte.trimestre_cohorte.ToString()))
+                {
+                    Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
+                }
+                else
+                {
+                    datoc.actualizarCohorte(cohorte);
+                    DTVListar.EditIndex = -1;
+                    ListarCohorte_Click(sender, e);
+                }
+
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                DTVListar.EditIndex = -1;
+                ListarCohorte_Click(sender, e);
+            }
+
         }
         // metodo para paginacion
         protected void DTVListar_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -101,5 +118,36 @@ namespace HorarioCtgi
             DTVListar.EditIndex = -1;
             ListarCohorte_Click(sender, e);
         }
+
+
+        protected void DTVListar_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            try
+            {
+                DateTime s = Convert.ToDateTime(e.Row.Cells[2].Text);
+                e.Row.Cells[2].Text = s.ToString("dd/MM/yyyy");
+                s = Convert.ToDateTime(e.Row.Cells[3].Text);
+                e.Row.Cells[3].Text = s.ToString("dd/MM/yyyy");
+            }
+            catch
+            {
+
+            }
+        }
+
+        protected Boolean isEmptyOrNull(String var)
+        {
+
+            if (var.Equals("") || var == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
     }
 }

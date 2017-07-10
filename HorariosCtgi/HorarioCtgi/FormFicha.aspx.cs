@@ -23,10 +23,10 @@ namespace HorarioCtgi
         protected void GuardarFicha_Click(object sender, EventArgs e)
         {
             ficha.codigo_ficha = Convert.ToInt64(txtcodigo.Text);
-            ficha.id_programa = Convert.ToInt16(ddlnombre_programa.SelectedItem.Value);
-            ficha.ningregantes_ficha = Convert.ToInt16(txtnintegrante.Text);
+            ficha.id_programa = Convert.ToInt32(ddlnombre_programa.SelectedItem.Value);
+            ficha.ningregantes_ficha = Convert.ToInt32(txtnintegrante.Text);
             ficha.jornada_ficha = ddljornada.SelectedItem.Value;
-            ficha.id_cohorte = Convert.ToInt16(ddlcohorte.SelectedItem.Value);
+            ficha.id_cohorte = Convert.ToInt32(ddlcohorte.SelectedItem.Value);
             daoficha.insertarFicha(ficha);
         }
 
@@ -47,11 +47,20 @@ namespace HorarioCtgi
             DTVListar.DataBind();
         }
         protected void DTVListar_RowDeleting(object sender, GridViewDeleteEventArgs e)
+
         {
-            GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
-            ficha.codigo_ficha = Convert.ToInt64(DTVListar.DataKeys[e.RowIndex].Value.ToString());
-             daoficha.eliminarFicha(ficha);
-            ListarFicha_Click(sender, e);
+            try
+            {
+                GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+                ficha.codigo_ficha = Convert.ToInt64(DTVListar.DataKeys[e.RowIndex].Value.ToString());
+                daoficha.eliminarFicha(ficha);
+            }
+            catch {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+            }
+            finally {
+                ListarFicha_Click(sender, e);
+            }
         }
 
         //Metodo para habilitar opciones de editar o cancelar
@@ -82,19 +91,35 @@ namespace HorarioCtgi
         //Metodo Actualizar
         protected void DTVListar_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
-            GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
-            TextBox tnumeroIntegrantes = (TextBox)row.Cells[1].Controls[0];
-            DropDownList tid_Programa = (DropDownList)row.Cells[3].Controls[1];
-            DropDownList tjornada_ficha = (DropDownList)row.Cells[5].Controls[1];
-            DropDownList tid_coho = (DropDownList)row.Cells[7].Controls[1];
-            ficha.codigo_ficha = Convert.ToInt64(row.Cells[0].Text);
-            ficha.id_programa = Convert.ToInt32(tid_Programa.SelectedItem.Value);
-            ficha.ningregantes_ficha = Convert.ToInt32(tnumeroIntegrantes.Text);
-            ficha.jornada_ficha = tjornada_ficha.SelectedItem.Value;
-            ficha.id_cohorte = Convert.ToInt32(tid_coho.SelectedItem.Value);
-            daoficha.actualizarFicha(ficha);
-            DTVListar.EditIndex = -1;
-            ListarFicha_Click(sender, e);
+            try
+            {
+                GridViewRow row = (GridViewRow)DTVListar.Rows[e.RowIndex];
+                TextBox tnumeroIntegrantes = (TextBox)row.Cells[1].Controls[0];
+                DropDownList tid_Programa = (DropDownList)row.Cells[3].Controls[1];
+                DropDownList tjornada_ficha = (DropDownList)row.Cells[5].Controls[1];
+                DropDownList tid_coho = (DropDownList)row.Cells[7].Controls[1];
+                ficha.codigo_ficha = Convert.ToInt64(row.Cells[0].Text);
+                ficha.id_programa = Convert.ToInt32(tid_Programa.SelectedItem.Value);
+                ficha.ningregantes_ficha = Convert.ToInt32(tnumeroIntegrantes.Text);
+                ficha.jornada_ficha = tjornada_ficha.SelectedItem.Value;
+                ficha.id_cohorte = Convert.ToInt32(tid_coho.SelectedItem.Value);
+                if (isEmptyOrNull(ficha.id_programa.ToString()) || isEmptyOrNull(ficha.jornada_ficha) || isEmptyOrNull(ficha.id_cohorte.ToString()))
+                {
+                    Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
+                }
+                else
+                {
+                    daoficha.actualizarFicha(ficha);
+                    DTVListar.EditIndex = -1;
+                    ListarFicha_Click(sender, e);
+                }
+            }
+            catch
+            {
+                Response.Write("<script>window.alert('Error inesperado');</script>");
+                DTVListar.EditIndex = -1;
+                ListarFicha_Click(sender, e);
+            }
         }
         // metodo para paginacion
         protected void DTVListar_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -120,5 +145,19 @@ namespace HorarioCtgi
             e.Row.Cells[4].Visible = true;
             e.Row.Cells[6].Visible = true;
         }
+
+        protected Boolean isEmptyOrNull(String var)
+        {
+
+            if (var.Equals("") || var == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
+
 }
