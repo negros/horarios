@@ -230,9 +230,9 @@ namespace HorarioCtgi
 
 
 
-                if (isEmptyOrNull(dt.fechainicio_asig.ToString()) || isEmptyOrNull(dt.fechafin_asig.ToString()) || isEmptyOrNull(dt.horainicio_asig.ToString()) ||
-                    isEmptyOrNull(dt.horafin_asig.ToString()) || isEmptyOrNull(dt.dia_asig) || isEmptyOrNull(dt.id_amb.ToString()) || isEmptyOrNull(dt.id_ficha.ToString())
-                    || isEmptyOrNull(dt.id_resul.ToString()) || isEmptyOrNull(dt.id_instru.ToString()))
+                if (String.IsNullOrEmpty(dt.fechainicio_asig.ToString()) || String.IsNullOrEmpty(dt.fechafin_asig.ToString()) || String.IsNullOrEmpty(dt.horainicio_asig.ToString()) ||
+                    String.IsNullOrEmpty(dt.horafin_asig.ToString()) || String.IsNullOrEmpty(dt.dia_asig) || String.IsNullOrEmpty(dt.id_amb.ToString()) || String.IsNullOrEmpty(dt.id_ficha.ToString())
+                    || String.IsNullOrEmpty(dt.id_resul.ToString()) || String.IsNullOrEmpty(dt.id_instru.ToString()))
                 {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 }
@@ -328,20 +328,5 @@ namespace HorarioCtgi
             }
 
         }
-
-
-        protected Boolean isEmptyOrNull(String var)
-        {
-
-            if (var.Equals("") || var == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
     }
 }

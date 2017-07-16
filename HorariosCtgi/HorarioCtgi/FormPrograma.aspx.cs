@@ -105,7 +105,7 @@ namespace HorarioCtgi
                 cpts.version_prog = textVersion.Text;
                 cpts.id_linea = Convert.ToInt32(tidLinea.SelectedItem.Value);
 
-                if (isEmptyOrNull(cpts.nombre_prog) || isEmptyOrNull(cpts.version_prog) || isEmptyOrNull(cpts.id_linea.ToString()))
+                if (String.IsNullOrEmpty(cpts.nombre_prog) || String.IsNullOrEmpty(cpts.version_prog) || String.IsNullOrEmpty(cpts.id_linea.ToString()))
                 {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 }
@@ -144,18 +144,7 @@ namespace HorarioCtgi
             e.Row.Cells[4].Visible = true;
         }
 
-        protected Boolean isEmptyOrNull(String var)
-        {
-
-            if (var.Equals("") || var == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+   
 
     }
 }

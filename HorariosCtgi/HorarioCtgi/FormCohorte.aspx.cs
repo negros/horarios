@@ -84,8 +84,8 @@ namespace HorarioCtgi
                 cohorte.fecha_fin = Convert.ToDateTime(textfecha_fin.Text);
                 cohorte.año_cohorte = textano.Text;
                 cohorte.trimestre_cohorte = Convert.ToInt32(textTrimeste.Text);
-                if (isEmptyOrNull(cohorte.nombre_cohorte) || isEmptyOrNull(cohorte.fecha_inicio.ToString()) || isEmptyOrNull(cohorte.fecha_fin.ToString())
-                    || isEmptyOrNull(cohorte.año_cohorte) || isEmptyOrNull(cohorte.trimestre_cohorte.ToString()))
+                if (String.IsNullOrEmpty(cohorte.nombre_cohorte) || String.IsNullOrEmpty(cohorte.fecha_inicio.ToString()) || String.IsNullOrEmpty(cohorte.fecha_fin.ToString())
+                    || String.IsNullOrEmpty(cohorte.año_cohorte) || String.IsNullOrEmpty(cohorte.trimestre_cohorte.ToString()))
                 {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 }
@@ -133,20 +133,6 @@ namespace HorarioCtgi
             {
 
             }
-        }
-
-        protected Boolean isEmptyOrNull(String var)
-        {
-
-            if (var.Equals("") || var == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
         }
 
     }

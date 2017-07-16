@@ -84,7 +84,7 @@ namespace HorarioCtgi
                 dt.nombre_amb = textNombreAmb.Text;
                 dt.capacidad_amb = textCapacidadAmb.Text;
                 dt.estado_amb = textEstadoAmb.Text;
-                if (dt.nombre_amb == null || dt.nombre_amb.Equals("") || dt.estado_amb == null || dt.estado_amb.Equals(""))
+                if (String.IsNullOrEmpty(dt.nombre_amb) || String.IsNullOrEmpty(dt.estado_amb))
                 {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 }

@@ -111,7 +111,7 @@ namespace HorarioCtgi
                 resultado.Nombre_resultado = textnombre.Text;
                 resultado.Descripcion = textDescripcion.Text;
                 resultado.Id_comp = Convert.ToInt32(tidCompetencia.SelectedItem.Value);
-                if (isEmptyOrNull(resultado.Nombre_resultado) || isEmptyOrNull(resultado.Id_comp.ToString())) {
+                if (String.IsNullOrEmpty(resultado.Nombre_resultado) || String.IsNullOrEmpty(resultado.Id_comp.ToString())) {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 } else {
                     cad.actualizarResultado(resultado);
@@ -146,18 +146,7 @@ namespace HorarioCtgi
             e.Row.Cells[3].Visible = true;
         }
 
-        protected Boolean isEmptyOrNull(String var)
-        {
-
-            if (var.Equals("") || var == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
+       
     }
 
 }

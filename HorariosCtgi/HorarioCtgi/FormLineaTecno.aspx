@@ -111,15 +111,18 @@
                                 <br />
                                 <p class="text-align--center">
                                     <asp:Button class="button button--inline-block button--medium" ID="btnInsertar" runat="server" Text="Insertar" OnClick="Insertar" />
-                                    <asp:Button class="button button--inline-block button--medium" ID="Button1" runat="server" Text="Consultar" OnClick="Consultar" />
                                     <asp:Button class="button button--inline-block button--medium" ID="btnListar" runat="server" Text="Listar" OnClick="Listar" />
                                 </p>
 
                                 <!-- Lista -->
 
-                                <asp:GridView ID="grvAmbientes" runat="server" AutoGenerateColumns="false" class="responsive-table striped">
+                                <asp:GridView ID="DTVListar" runat="server" AutoGenerateColumns="false" class="responsive-table striped" DataKeyNames="id_linea_tecno" OnPageIndexChanging="DTVListar_PageIndexChanging"
+                                         OnRowCancelingEdit="DTVListar_RowCancelingEdit"  OnRowEditing="DTVListar_RowEditing" OnRowUpdating="DTVListar_RowUpdating" OnRowDeleting="DTVListar_RowDeleting">
                                     <Columns>
+                                        <asp:BoundField DataField="id_linea_tecno"   ReadOnly="true" HeaderText="id Linea Tecnológica" SortExpression="id_linea_tecno" />
                                         <asp:BoundField DataField="nombre_linea_tecno" HeaderText="Nombre de Linea Tecnológica" SortExpression="nombre_linea_tecno" />
+                                        <asp:CommandField ShowHeader="false" ShowEditButton="true" />
+                                        <asp:CommandField ShowHeader="false" ShowDeleteButton="true" />
                                     </Columns>
                                 </asp:GridView>
                             </div>
