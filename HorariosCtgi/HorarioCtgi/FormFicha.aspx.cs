@@ -103,7 +103,7 @@ namespace HorarioCtgi
                 ficha.ningregantes_ficha = Convert.ToInt32(tnumeroIntegrantes.Text);
                 ficha.jornada_ficha = tjornada_ficha.SelectedItem.Value;
                 ficha.id_cohorte = Convert.ToInt32(tid_coho.SelectedItem.Value);
-                if (isEmptyOrNull(ficha.id_programa.ToString()) || isEmptyOrNull(ficha.jornada_ficha) || isEmptyOrNull(ficha.id_cohorte.ToString()))
+                if (String.IsNullOrEmpty(ficha.id_programa.ToString()) || String.IsNullOrEmpty(ficha.jornada_ficha) || String.IsNullOrEmpty(ficha.id_cohorte.ToString()))
                 {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 }
@@ -144,19 +144,6 @@ namespace HorarioCtgi
             e.Row.Cells[2].Visible = true;
             e.Row.Cells[4].Visible = true;
             e.Row.Cells[6].Visible = true;
-        }
-
-        protected Boolean isEmptyOrNull(String var)
-        {
-
-            if (var.Equals("") || var == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 

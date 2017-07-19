@@ -106,7 +106,7 @@ namespace HorarioCtgi
                 cpts.nombre_comp = tnombre_comp.Text;
                 cpts.descripcion_comp = tdescripcion_comp.Text;
                 cpts.id_prog = Convert.ToInt32(tid_Programa.SelectedItem.Value);
-                if (isEmptyOrNull(cpts.nombre_comp) || isEmptyOrNull(cpts.id_prog.ToString()))
+                if (String.IsNullOrEmpty(cpts.nombre_comp) || String.IsNullOrEmpty(cpts.id_prog.ToString()))
                 {
                     Response.Write("<script>window.alert('los campos con * son obligatorios');</script>");
                 }
@@ -143,19 +143,6 @@ namespace HorarioCtgi
             e.Row.Cells[4].Visible = false;
             e.Row.Cells[5].Visible = false;
             e.Row.Cells[3].Visible = true;
-        }
-
-        protected Boolean isEmptyOrNull(String var)
-        {
-
-            if (var.Equals("") || var == null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }

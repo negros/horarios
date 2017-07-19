@@ -47,6 +47,68 @@ namespace Controlador
             }
         }
 
+        public bool actualizarLinea_tecno(Modelo.DTOLinea_tecno linea_tecno)
+        {
+            try
+            {
+                con = new SqlConnection(cadena);
+                cmd.Connection = con;
+                cmd.CommandText = "prcGestionLinea_tecno";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@action", "update");
+                cmd.Parameters.AddWithValue("@nombre_linea_tecno", linea_tecno.nombre_linea_tecno);
+                cmd.Parameters.AddWithValue("@id", linea_tecno.id_linea_tecno);
+                con.Open();
+                int respuesta = cmd.ExecuteNonQuery();
+                con.Close();
+                if (respuesta == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+                return false;
+
+            }
+        }
+
+
+        public bool borrarLinea_tecno(Modelo.DTOLinea_tecno linea_tecno)
+        {
+            try
+            {
+                con = new SqlConnection(cadena);
+                cmd.Connection = con;
+                cmd.CommandText = "prcGestionLinea_tecno";
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@action", "delete");
+                cmd.Parameters.AddWithValue("@id", linea_tecno.id_linea_tecno);
+                con.Open();
+                int respuesta = cmd.ExecuteNonQuery();
+                con.Close();
+                if (respuesta == 0)
+                {
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+
+                return false;
+
+            }
+        }
+
         public DataTable ListarLinea_tecno()
         {
             using (SqlConnection con = new SqlConnection(cadena))

@@ -9,5 +9,6 @@ namespace Modelo
     public class DTOLinea_tecno
     {
         public string nombre_linea_tecno { get; set; }
+        public int id_linea_tecno { get; set; }
     }
 }
